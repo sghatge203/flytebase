@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="top-header">
+    <button type="button" class="add-button" (click)="addBox()">Add New box</button>
+    <label class="switch">
+      <input type="checkbox" (click)=stopMovement($event)>
+      <span class="slider round"><span class="on">On</span><span class="off">Off</span> </span>
+    </label>
+  </div>
+  <div class="fence">
+    <div *ngFor="let box of boxList" id="{{box}}" (click)="onSelectBox(box)"
+    [ngClass]="{'hightLightBox':selectedFlag == box}"
+    [ngStyle]="{'z-index':box,'top.px':box.bottom,'left.px':box.right,'right.px':box.left,'bottom.px':box.top}"
+    class="box-dimesion">
+    <div class="text-center"> Box-{{box.id}}</div>
+  </div>
+  </div>
+</div>
